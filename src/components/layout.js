@@ -1,50 +1,25 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
- */
+import * as React from 'react'
+import {container, imageVita} from './layout.module.css'
+import Header from './header'
+import image1 from '../images/image-1.png'
+import CarouselPage from './Hero'
+import SimpleSlider from './Slicker'
 
-import * as React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-
-import Header from "./header"
-import "./layout.css"
-
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
+const Layout = ({ pageTitle, children }) => {
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: `var(--size-content)`,
-          padding: `var(--size-gutter)`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `var(--space-5)`,
-            fontSize: `var(--font-sm)`,
-          }}
-        >
-          © {new Date().getFullYear()} &middot; Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
-    </>
+    <div className={container}>
+      <nav>
+        <Header></Header>
+      </nav>
+      {/* <SimpleSlider />
+      <CarouselPage />
+      <main>
+        <h1>{pageTitle}</h1>
+        {children}
+      </main> */}
+      
+      <img src={image1} alt="image1" className={imageVita}/>
+    </div>
   )
 }
 
