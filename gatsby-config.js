@@ -39,5 +39,12 @@ module.exports = {
         icon: `src/images/image-1.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: 'gatsby-background-image',
+      options: {
+        // add your own characters to escape, replacing the default ':/'
+        specialChars: '/:',
+      },
+    },
   ],
 }

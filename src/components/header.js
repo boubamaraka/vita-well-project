@@ -9,6 +9,9 @@ import {
 
 const Header = ({ siteTitle }) => (
   <header className={container}>
+    <div class="site-branding">
+			<a href="https://www.vitaminwell.com/"></a>
+		</div>
     <ul className={navLinks}>
       <li  className={navLinkItem}>
         <Link to="/" className={navLinkText}>
@@ -16,7 +19,7 @@ const Header = ({ siteTitle }) => (
         </Link>
       </li>
       <li  className={navLinkItem}>
-        <Link to="/" className={navLinkText}>
+        <Link to="/About" className={navLinkText}>
           About Us
         </Link>
       </li>

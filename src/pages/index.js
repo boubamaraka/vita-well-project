@@ -1,62 +1,31 @@
 import * as React from 'react'
+import { graphql, usestaticquery } from "gatsby"
 import Layout from '../components/layout'
+import BackgroundSection from '../components/Globals/Background'
+import Slider from '../components/Globals/Slider'
 
-const IndexPage = () => {
+const IndexPage = (data) => {
+
+  console.log(data)
   return (
-    <Layout pageTitle="Home Page">
-      <p>I'm making this by following the Gatsby Tutorial.</p>
+    <Layout pageTitle="Home">
+      <Slider />
+      <BackgroundSection title="Vita Drink" img={data.data.img.childImageSharp.fluid}/>
     </Layout>
   )
 }
 
-export const Head = () => <title>Home Page</title>
-export const CarouselPageQuery = graphql`
-  query {
-    image1 : file(relativePath: {eq: "image-1.png"}) {
-    id
-    name
-    childrenImageSharp{
-      fluid{
-        ...GatsbyImageSharpFluid
-      }
-    }
-  }
-  image2 : file(relativePath: {eq: "image-2.png"}) {
-    id
-    name
-    childrenImageSharp{
-      fluid{
-        ...GatsbyImageSharpFluid
-      }
-    }
-  }
-  image3 : file(relativePath: {eq: "image-3.png"}) {
-    id
-    name
-    childrenImageSharp{
-      fluid{
-        ...GatsbyImageSharpFluid
-      }
-    }
-  }
-  image4 : file(relativePath: {eq: "image-4.png"}) {
-    id
-    name
-    childrenImageSharp{
-      fluid{
-        ...GatsbyImageSharpFluid
-      }
-    }
-  }
-  image5 : file(relativePath: {eq: "image-5.png"}) {
-    id
-    name
-    childrenImageSharp{
-      fluid{
-        ...GatsbyImageSharpFluid
-      }
-    }
-  }
-  }
+
+export const query = graphql`
+query {
+  img: file(relativePath: {eq: "background.jpeg"}) {
+    childImageSharp {
+      fluid {
+        ...GatsbyImageSharpFluid_withWebp
+       }
+     }
+   }
+}
 `
+
 export default IndexPage
